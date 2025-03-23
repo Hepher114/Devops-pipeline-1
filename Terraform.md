@@ -42,6 +42,9 @@ resource "aws_vpc" "server-vpc" {
   }
 }
 ```
+Subnets
+Two public subnets are created across two availability zones (us-east-1a and us-east-1b):
 
+server-public-subnet-01 in us-east-1a
 
-
+server-public-subnet-02 in us-east-1b
