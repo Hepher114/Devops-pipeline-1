@@ -33,7 +33,19 @@ To send the `server-key.pem` to the server using `scp` and then move it to the d
 ### Note:
 - I used `server-key.pem` for all servers. It is the private key that will allow access to the server and is required for Ansible configurations or any other operations that need secure communication between the local machine and the server.
 
-### Step 1: Use `scp` to copy the file
+### Use `scp` to copy the file
 
 ```sh
 scp /path/to/local/server-key.pem server-key.pem ec2-user@<server-ip>:/home/ubuntu/
+```
+### SSH into the server and move the file
+
+First, SSH into the server:
+
+```sh
+ssh ec2-user@<server-ip>
+### After logging into the server, move the file from `/home/ubuntu` to `/opt/`:
+
+```sh
+sudo mv /home/ubuntu/server-key /opt/server-key.pem
+
