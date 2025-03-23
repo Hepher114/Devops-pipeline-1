@@ -51,14 +51,14 @@ Add the Jenkins master and slave private IPs in the inventory file. In this case
 [jenkins]
 14.409.28.174  # Replace this with your Jenkins master private IP
 
-[jenkins-master:vars]
+[jenkins:vars]
 ansible_user=ec2-user
 ans_private_key=/opt/server-key.pem
 
 [worker]
 13.209.18.174   # Replace this with your Jenkins slave private IP
 
-[jenkins-slave:vars]
+[worker:vars]
 ansible_user=ec2-user
 ans_private_key=/opt/server-key.pem
 ```
