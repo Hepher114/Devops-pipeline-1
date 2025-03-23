@@ -73,16 +73,5 @@ To test the connection, use the following command:
 
 ```sh
 ansible -i hosts all -m ping
-# Ansible Command Breakdown
-
-- **ansible**: This is the command-line tool that allows you to run tasks against the managed nodes.
-
-- **-i hosts**: The `-i` option specifies the inventory file to use. In this case, `hosts` is the file where you've defined the Jenkins master and slave nodes.
-
-- **all**: This refers to the group of hosts that you want to run the task against. By specifying `all`, you're instructing Ansible to test the connection with all the nodes listed in the `hosts` inventory file.
-
-- **-m ping**: The `-m` option specifies the module to use. In this case, `ping` is the module that tests connectivity. It sends a simple "pong" response if the connection is successful.
 ```
-
-
 
