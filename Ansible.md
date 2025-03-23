@@ -48,4 +48,5 @@ ssh ec2-user@<server-ip>
 
 ```sh
 sudo mv /home/ubuntu/server-key /opt/server-key.pem
+```
 
