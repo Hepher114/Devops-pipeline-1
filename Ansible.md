@@ -43,3 +43,22 @@ scp /path/to/local/server-key.pem server-key.pem ec2-user@<server-ip>:/home/ubun
 sudo mv /home/ubuntu/server-key /opt/server-key.pem
 ```
 
+# Add Jenkins master and slave as hosts
+
+Add the Jenkins master and slave private IPs in the inventory file. In this case, we are using `/opt` as our working directory for Ansible.
+
+```hcl
+[jenkins]
+14.409.28.174  # Replace this with your Jenkins master private IP
+
+[jenkins-master:vars]
+ansible_user=ec2-user
+ans_private_key=/opt/server-key.pem
+
+[worker]
+13.209.18.174   # Replace this with your Jenkins slave private IP
+
+[jenkins-slave:vars]
+ansible_user=ec2-user
+ans_private_key=/opt/server-key.pem
+```
