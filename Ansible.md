@@ -1,7 +1,7 @@
 
 # Setting Up Ansible for Jenkins and worker on Ubuntu 22.04
 
-In this article, we will walk you through the process of setting up Ansible on an Ubuntu 22.04 machine and configuring it to manage Jenkins master and slave nodes. Ansible is a powerful automation tool that allows you to manage your infrastructure, deploy software, and orchestrate tasks across multiple machines. 
+Here we will walk you through the process of setting up Ansible on an Ubuntu 22.04 machine and configuring it to manage Jenkins master and slave nodes. Ansible is a powerful automation tool that allows you to manage your infrastructure, deploy software, and orchestrate tasks across multiple machines. 
 
 We will guide you through the following steps:
 - Installing Ansible on Ubuntu 22.04
