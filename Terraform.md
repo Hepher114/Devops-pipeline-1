@@ -22,9 +22,26 @@ This Terraform configuration defines the infrastructure resources required to se
 
 The configuration uses AWS as the provider and sets the region to `us-east-1`. Ensure you have valid AWS credentials set up to apply this configuration.
 
-```hcl
+```
 provider "aws" {
     region = "us-east-1"
 }
 
+```
 The AWS provider is configured to use the us-east-1 region for all resources.
+# Resources
+
+## VPC
+The VPC resource defines a private network with the CIDR block `10.1.0.0/16` and is named `server-vpc`.
+
+```
+resource "aws_vpc" "server-vpc" {
+  cidr_block = "10.1.0.0/16"
+  tags = {
+    Name = "server-vpc"
+  }
+}
+```
+
+
+
