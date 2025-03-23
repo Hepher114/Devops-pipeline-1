@@ -20,3 +20,18 @@ For a detailed guide on installation and configuration, we also refer to the off
    sudo apt install software-properties-common
    sudo add-apt-repository --yes --update ppa:ansible/ansible
    sudo apt install ansible
+   ```
+# Sending the server-key.pem to the ansible server 
+
+To send the `server-key.pem` to the server using `scp` and then move it to the desired directory, follow these steps:
+
+1. Ensure you have the correct file path for `server-key.pem` on your local machine.
+2. Replace `<server-ip>` with the IP address of the server where Ansible is being set up.
+3. Replace `/path/to/local/server-key.pem` with the actual path to the `server-key.pem` file on your local machine.
+4. The `ec2-user` is the default user for AWS EC2 instances running Amazon Linux. If you're using a different Linux distribution or have a different username, replace `ec2-user` accordingly.
+5. `/home/ubuntu` is the initial directory where the file will be copied. Then, you will move it to `/opt/`.
+
+### Step 1: Use `scp` to copy the file
+
+```sh
+scp /path/to/local/yourFirstkey.pem yourSecondkey.pem ec2-user@<server-ip>:/home/ubuntu/
