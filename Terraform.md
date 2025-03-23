@@ -26,3 +26,5 @@ The configuration uses AWS as the provider and sets the region to `us-east-1`. E
 provider "aws" {
     region = "us-east-1"
 }
+
+The AWS provider is configured to use the us-east-1 region for all resources.
