@@ -142,8 +142,7 @@ resource "aws_security_group" "server-sg" {
 EC2 Instances
 EC2 instances are created using a for_each loop, deploying jenkins, worker, and ansible instances with the AMI ID ami-04b4f1a9cf54c11d0 and instance type t2.micro.
 
-hcl
-Copy
+```
 resource "aws_instance" "server" {
     for_each = toset(["jenkins", "worker", "ansible"])
     ami = "ami-04b4f1a9cf54c11d0"
