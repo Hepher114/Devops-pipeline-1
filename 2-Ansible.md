@@ -45,7 +45,7 @@ sudo mv /home/ubuntu/server-key /opt/server-key.pem
 
 # Add Jenkins master and slave as hosts
 
-Add the Jenkins master and slave private IPs in the inventory file. In this case, we are using `/opt` as our working directory for Ansible.
+Add the Jenkins master and slave private IPs in the inventory file (hosts). In this case, we are using `/opt` as our working directory for Ansible.
 
 ```hcl
 [jenkins]
