@@ -3,6 +3,8 @@
 
 This Terraform configuration defines the infrastructure resources required to set up the environment on AWS. The setup includes the creation of a Virtual Private Cloud (VPC), subnets, routing tables, internet gateway, security groups, and EC2 instances, primarily for use with Jenkins, worker, and Ansible setups.
 
+![Screenshot 2025-03-23 201933](https://github.com/user-attachments/assets/5ea71b23-51e1-4531-9e1b-5ab5614c7496)
+
 ## Table of Contents
 - [Provider Configuration](#provider-configuration)
 - [Resources](#resources)
