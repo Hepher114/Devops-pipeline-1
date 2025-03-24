@@ -78,3 +78,31 @@ The output should confirm whether Ansible is able to reach the servers and commu
 
 ![Screenshot 2025-03-23 193005](https://github.com/user-attachments/assets/a2b37316-cad7-4e3a-b52f-ffe573393602)
 
+# Install jenkins master using ansible playbook
+##  Add the Jenkins Repository Key
+The first step is to add the Jenkins repository key to the target server. This ensures that the packages you install are verified and trusted. We will use the apt_key module in Ansible to achieve this.
+
+Visit the official Jenkins website to confirm the current steps: https://pkg.jenkins.io/debian/. You can also refer to the Ansible documentation for the apt_key module here: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_key_module.html.
+
+Here’s how to add the key using an Ansible playbook:
+```hcl
+- name: Add Jenkins repository key
+  hosts: jenkins
+  become: true
+  tasks:
+    - name: Add Jenkins key
+      ansible.builtin.apt_key:
+        url:  https://pkg.jenkins.io/debian/jenkins.io-2023.key
+        state: present
+```
+
+Add the Jenkins Apt Repository
+Next, we need to add the Jenkins repository to the list of package sources.  You can also refer to the Ansible documentation for the apt_key module here: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_repository_module.html and https://pkg.jenkins.io/debian/
+
+Add the following task to your playbook:
+```hcl
+    - name: Add Jenkins repository
+      ansible.builtin.apt_repository:
+        repo: "deb https://pkg.jenkins.io/debian binary/"
+        state: present
+```
