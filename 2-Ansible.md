@@ -199,7 +199,7 @@ You should get an output similar to this:
 ![Screenshot 2025-03-23 223512](https://github.com/user-attachments/assets/e2b9a29d-21aa-42e6-9869-e2f9db362f4f)
 The playbook will install both Jenkins and Java on the Jenkins master server
 # Configuring Jenkins Master
-Access Jenkins: Open a browser and go to http://<jenkins-ip>:8080.
+Access Jenkins: Open a browser and go to `http://<jenkins-ip>:8080`.
 
 ![Screenshot 2025-03-23 231831](https://github.com/user-attachments/assets/d1a7b98b-30e2-4a76-ae12-23f1a891fe1b)
 - Unlock Jenkins: Retrieve the initial admin password from the server and enter it in the web interface.
