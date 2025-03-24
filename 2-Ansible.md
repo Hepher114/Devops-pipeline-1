@@ -149,36 +149,36 @@ Add the following task to your playbook:
   hosts: jenkins
   become: true
   tasks:
-    # Step 1: Add the Jenkins Repository Key
+    # Add the Jenkins Repository Key
     - name: Add Jenkins repository key
       ansible.builtin.apt_key:
         url: https://pkg.jenkins.io/debian/jenkins.io-2023.key
         state: present
 
-    # Step 2: Add the Jenkins Apt Repository
+    # Add the Jenkins Apt Repository
     - name: Add Jenkins repository
       ansible.builtin.apt_repository:
         repo: "deb https://pkg.jenkins.io/debian binary/"
         state: present
 
-    # Step 3: Update the Local Package Index
+    # Update the Local Package Index
     - name: Update apt package index
       ansible.builtin.apt:
         update_cache: yes
 
-    # Step 4: Install Java (Jenkins dependency)
+    # Install Java (Jenkins dependency)
     - name: Install Java
       ansible.builtin.apt:
         name: openjdk-17-jre
         state: present
 
-    # Step 5: Install Jenkins
+    # Install Jenkins
     - name: Install Jenkins
       ansible.builtin.apt:
         name: jenkins
         state: present
 
-    # Step 6: Start and Enable Jenkins Service
+    # Start and Enable Jenkins Service
     - name: Start Jenkins service
       ansible.builtin.service:
         name: jenkins
