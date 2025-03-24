@@ -252,7 +252,9 @@ ls
 Here’s an example of what the output might look like:
 ![Screenshot 2025-03-24 025505](https://github.com/user-attachments/assets/19affc36-a8f8-4fdb-a04d-d05f9047ccea)
 
-## References:
-To download package from url: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/get_url_module.html
-To download Maven: https://maven.apache.org/download.cgi
-To uncharchive: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/unarchive_module.html
+- **Download Packages from a URL**:  
+  [`get_url` Module Documentation](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/get_url_module.html)  
+- **Download Maven**:  
+  [Apache Maven Download Page](https://maven.apache.org/download.cgi)  
+- **Unarchive Files**:  
+  [`unarchive` Module Documentation](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/unarchive_module.html)  
