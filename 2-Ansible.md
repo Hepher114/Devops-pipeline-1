@@ -250,9 +250,8 @@ cd /opt
 ls
 ```
 Here’s an example of what the output might look like:
-![Screenshot 2025-03-24 025408](https://github.com/user-attachments/assets/b5268c2c-c44d-48ee-adf3-9920e128449d)
+![Screenshot 2025-03-24 025505](https://github.com/user-attachments/assets/19affc36-a8f8-4fdb-a04d-d05f9047ccea)
 
-you can go on the worker server and cd /opt , type ls , you should see
 ## References:
 To download package from url: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/get_url_module.html
 To download Maven: https://maven.apache.org/download.cgi
