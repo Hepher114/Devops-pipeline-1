@@ -189,3 +189,11 @@ Add the following task to your playbook:
         name: jenkins
         enabled: yes
 ```
+
+Once you've created the playbook, paste your configuration inside the jenkins-setup.yaml file ( replace it with the name of your yaml file )and then run it using the following command:
+```hcl
+ansible-playbook -i /opt/hosts /opt/jenkins-setup.yaml
+```
+You should get an output similar to this:
+
+![Screenshot 2025-03-23 223512](https://github.com/user-attachments/assets/e2b9a29d-21aa-42e6-9869-e2f9db362f4f)
