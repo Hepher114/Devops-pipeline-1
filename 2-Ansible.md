@@ -28,7 +28,7 @@ To send the `server-key.pem` to the server using `scp` and then move it to the d
 1. Ensure you have the correct file path for your `key.pem` on your local machine.
 2. Replace `<server-ip>` with the IP address of the server where Ansible is being set up.
 3. Replace `/path/to/local/server-key.pem` with the actual path to your `key.pem` file on your local machine.
-4. The `ec2-user` is the default user for AWS EC2 instances running Amazon Linux. If you're using a different Linux distribution or have a different username, replace `ec2-user` accordingly.
+4. The `ec2-user` is the default user for AWS EC2 instances running ubuntu. If you're using a different Linux distribution or have a different username, replace `ubuntu` accordingly.
 5. `/home/ubuntu` is the initial directory where the file will be copied. Then, you will move it to `/opt/`.
 ### Note:
 - I used `server-key.pem` for all servers. It is the private key that will allow access to the server and is required for Ansible configurations or any other operations that need secure communication between the local machine and the server.
@@ -52,14 +52,14 @@ Add the Jenkins master and slave private IPs in the inventory file (hosts). In t
 14.409.28.174  # Replace this with your Jenkins master private IP
 
 [jenkins:vars]
-ansible_user=ec2-user
+ansible_user=ubuntu
 ans_private_key=/opt/server-key.pem
 
 [worker]
 13.209.18.174   # Replace this with your Jenkins slave private IP
 
 [worker:vars]
-ansible_user=ec2-user
+ansible_user=ubuntu
 ans_private_key=/opt/server-key.pem
 ```
 This is an Ansible inventory file for managing a Jenkins setup with a master and worker node. It defines the private IP addresses for both the Jenkins master and worker, along with the SSH user (`ec2-user`) and private key (`/opt/server-key.pem`) used for authentication. The master and worker nodes are listed under separate groups, `[jenkins]` and `[worker]`, with corresponding configuration details to allow Ansible to manage these servers.
