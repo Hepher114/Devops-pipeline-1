@@ -53,14 +53,14 @@ Add the Jenkins master and slave private IPs in the inventory file (hosts). In t
 
 [jenkins:vars]
 ansible_user=ubuntu
-ans_private_key=/opt/server-key.pem
+ansible_ssh_private_key_file=/opt/server-key.pem
 
 [worker]
 13.209.18.174   # Replace this with your Jenkins slave private IP
 
 [worker:vars]
 ansible_user=ubuntu
-ans_private_key=/opt/server-key.pem
+ansible_ssh_private_key_file=/opt/server-key.pem
 ```
 This is an Ansible inventory file for managing a Jenkins setup with a master and worker node. It defines the private IP addresses for both the Jenkins master and worker, along with the SSH user (`ec2-user`) and private key (`/opt/server-key.pem`) used for authentication. The master and worker nodes are listed under separate groups, `[jenkins]` and `[worker]`, with corresponding configuration details to allow Ansible to manage these servers.
 
@@ -74,4 +74,5 @@ To test the connection, use the following command:
 ```sh
 ansible -i hosts all -m ping
 ```
+![Screenshot 2025-03-23 193005](https://github.com/user-attachments/assets/a2b37316-cad7-4e3a-b52f-ffe573393602)
 
