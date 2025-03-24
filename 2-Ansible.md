@@ -211,3 +211,49 @@ Access Jenkins: Open a browser and go to `http://<jenkins-ip>:8080`.
 # Install Maven using ansible playbook 
 
 Now that Jenkins is fully configured and operational on the master node, the next step is to prepare the worker node to handle builds using Maven. To streamline this process, we will use an Ansible playbook to automate the installation and configuration of Maven on the worker node. 
+
+Update Ubuntu Repository and Cache
+```hcl
+---
+- hosts: worker
+  become: true 
+  tasks: 
+  - name: update ubuntu repo and cache 
+    apt: 
+      update_cache: yes 
+      cache_valid_time: 3600 
+
+  - name: install java 
+    apt: 
+      name: openjdk-17-jre
+      state: present
+
+  - name: download maven packages 
+    get_url:
+      url: https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
+      dest: /opt
+
+  - name: extract maven packages 
+    unarchive:
+      src: /opt/apache-maven-3.9.9-bin.tar.gz
+      dest: /opt 
+      remote_src: yes
+      dest: /opt      
+```
+Now, you can execute the playbook by running the following command:
+```hcl
+ansible-playbook -i /opt/hosts worker.yaml
+```
+Once the playbook has completed successfully, you can verify the installation by logging into the worker server. Navigate to the /opt directory and list its contents using the ls command:
+```hcl
+cd /opt
+ls
+```
+Here’s an example of what the output might look like:
+![Screenshot 2025-03-24 025408](https://github.com/user-attachments/assets/b5268c2c-c44d-48ee-adf3-9920e128449d)
+
+you can go on the worker server and cd /opt , type ls , you should see
+## References:
+To download package from url: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/get_url_module.html
+To download Maven: https://maven.apache.org/download.cgi
+To uncharchive: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/unarchive_module.html
