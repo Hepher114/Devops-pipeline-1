@@ -205,10 +205,8 @@ Access Jenkins: Open a browser and go to `http://<jenkins-ip>:8080`.
 - Unlock Jenkins: Retrieve the initial admin password from the server and enter it in the web interface.
 - Install Plugins: Choose Install suggested plugins to set up essential plugins.
 - Create Admin User: Set up an admin account with a username, password, and email.
-- Configure URL: Verify and save the Jenkins URL (e.g., http://<jenkins-ip>:8080).
 - Access Dashboard: Complete setup and access the Jenkins dashboard.
-- Verify Installation: Check Jenkins service status and ensure it’s running.
-- Optional: Install additional plugins as needed.
+
 
 # Install Maven using ansible playbook 
 
