@@ -74,5 +74,6 @@ To test the connection, use the following command:
 ```sh
 ansible -i hosts all -m ping
 ```
+The output should confirm whether Ansible is able to reach the servers and communicate with them successfully. If the connection is successful, you will see a response similar to the one shown below:
 ![Screenshot 2025-03-23 193005](https://github.com/user-attachments/assets/a2b37316-cad7-4e3a-b52f-ffe573393602)
 
