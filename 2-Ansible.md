@@ -96,7 +96,7 @@ Here’s how to add the key using an Ansible playbook:
         state: present
 ```
 
-Add the Jenkins Apt Repository
+## Add the Jenkins Apt Repository
 Next, we need to add the Jenkins repository to the list of package sources.  You can also refer to the Ansible documentation for the apt_key module here: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_repository_module.html and https://pkg.jenkins.io/debian/
 
 Add the following task to your playbook:
@@ -105,4 +105,87 @@ Add the following task to your playbook:
       ansible.builtin.apt_repository:
         repo: "deb https://pkg.jenkins.io/debian binary/"
         state: present
+```
+## Update the Local Package Index
+Before installing Jenkins, it’s a good practice to update the local package index to ensure you have the latest package information.
+
+Add the following task to your playbook:
+```hcl
+    - name: Update apt package index
+      ansible.builtin.apt:
+        update_cache: yes
+```
+## Install Jenkins
+```hcl
+    - name: Install Jenkins
+      ansible.builtin.apt:
+        name: jenkins
+        state: present
+```
+## Install Java
+```hcl
+    - name: Install Java
+      ansible.builtin.apt:
+        name: openjdk-17-jre
+        state: present
+```
+## Start and Enable Jenkins Service
+ You can also refer to ansible.builtin.service module: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/service_module.html
+```hcl
+    - name: Start Jenkins service
+      ansible.builtin.service:
+        name: jenkins
+        state: started
+
+    - name: Enable Jenkins service on boot
+      ansible.builtin.service:
+        name: jenkins
+        enabled: yes
+```
+## Final version 
+```hcl
+---
+- name: Install Jenkins Master
+  hosts: jenkins
+  become: true
+  tasks:
+    # Step 1: Add the Jenkins Repository Key
+    - name: Add Jenkins repository key
+      ansible.builtin.apt_key:
+        url: https://pkg.jenkins.io/debian/jenkins.io-2023.key
+        state: present
+
+    # Step 2: Add the Jenkins Apt Repository
+    - name: Add Jenkins repository
+      ansible.builtin.apt_repository:
+        repo: "deb https://pkg.jenkins.io/debian binary/"
+        state: present
+
+    # Step 3: Update the Local Package Index
+    - name: Update apt package index
+      ansible.builtin.apt:
+        update_cache: yes
+
+    # Step 4: Install Java (Jenkins dependency)
+    - name: Install Java
+      ansible.builtin.apt:
+        name: openjdk-17-jre
+        state: present
+
+    # Step 5: Install Jenkins
+    - name: Install Jenkins
+      ansible.builtin.apt:
+        name: jenkins
+        state: present
+
+    # Step 6: Start and Enable Jenkins Service
+    - name: Start Jenkins service
+      ansible.builtin.service:
+        name: jenkins
+        state: started
+
+    - name: Enable Jenkins service on boot
+      ansible.builtin.service:
+        name: jenkins
+        enabled: yes
 ```
