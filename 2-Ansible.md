@@ -40,7 +40,7 @@ scp /path/to/local/server-key.pem server-key.pem ec2-user@<ansible-server-ip>:/h
 ```
 ### SSH into the server and move the file
 ```hcl
-sudo mv /home/ubuntu/server-key /opt/server-key.pem
+sudo mv /home/ubuntu/server-key.pem /opt/server-key.pem
 ```
 
 # Add Jenkins master and slave as hosts
