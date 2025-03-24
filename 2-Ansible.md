@@ -210,3 +210,6 @@ Access Jenkins: Open a browser and go to `http://<jenkins-ip>:8080`.
 - Verify Installation: Check Jenkins service status and ensure it’s running.
 - Optional: Install additional plugins as needed.
 
+# Install Maven using ansible playbook 
+
+Now that Jenkins is fully configured and operational on the master node, the next step is to prepare the worker node to handle builds using Maven. To streamline this process, we will use an Ansible playbook to automate the installation and configuration of Maven on the worker node. 
