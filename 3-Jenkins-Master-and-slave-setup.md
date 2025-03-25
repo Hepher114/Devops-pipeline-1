@@ -1,4 +1,4 @@
-# Jenkins Master and Slave Setup: A Step-by-Step Guide
+# Set up of Jenkins Master and Slave 
 
  In this article, we'll guide you through the process of setting up Jenkins Master and Slave nodes. T
 
