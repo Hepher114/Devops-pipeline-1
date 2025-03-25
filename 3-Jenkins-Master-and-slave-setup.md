@@ -75,3 +75,17 @@ Now that the credentials are ready, the next step is to add the slave node. The 
 
 ![Screenshot 2025-03-25 002712](https://github.com/user-attachments/assets/c304e0f4-6b09-48ac-bd0d-b8db8bb69672)
 
+## Verifying the Connection and Jenkins Directory
+
+After you have added the slave node in Jenkins, you can verify that the connection is successful and the node is active.
+
+1. **Check the Connection on the Maven Node**  
+   Go to the **Maven node** in Jenkins and verify that the status shows it is connected. This indicates that Jenkins is successfully communicating with the slave node.
+![Screenshot 2025-03-25 005047](https://github.com/user-attachments/assets/92dbe916-d3f1-4872-b61d-363d416b82aa)
+
+2. **Verify the Jenkins Directory on the Slave Server**  
+   Now, go to your slave server. If you navigate to the `/home/ubuntu` directory (or the directory you specified for the remote root in the slave configuration), you should find a folder named `jenkins`. This folder is where Jenkins stores its necessary files and configurations for the slave node.
+
+![Screenshot 2025-03-25 005148](https://github.com/user-attachments/assets/a9eee1a2-312a-485b-9012-c08791b5a22b)
+
+
