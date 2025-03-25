@@ -69,7 +69,7 @@ This is an Ansible inventory file for managing a Jenkins setup with a master and
 
 After you've set up Ansible and configured your inventory file with the Jenkins master and slave nodes, it's important to verify that Ansible can successfully communicate with the servers. This can be done using the ping module, which allows you to test the connection between your Ansible control node (the machine running Ansible) and the managed nodes (your Jenkins master and slave servers).
 
-To test the connection, use the following command:
+After executing 'chmod 400 your-key.pem' , test the connection using the following command:
 
 ```sh
 ansible -i hosts all -m ping
