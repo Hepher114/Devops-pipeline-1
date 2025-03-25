@@ -28,7 +28,7 @@ To send the `server-key.pem` to the server using `scp` and then move it to the d
 1. Ensure you have the correct file path for your `key.pem` on your local machine.
 2. Replace `<server-ip>` with the IP address of the server where Ansible is being set up.
 3. Replace `/path/to/local/server-key.pem` with the actual path to your `key.pem` file on your local machine.
-4. The `ec2-user` is the default user for AWS EC2 instances running ubuntu. If you're using a different Linux distribution or have a different username, replace `ubuntu` accordingly.
+4. The `ubuntu` is the default user for AWS EC2 instances running ubuntu. If you're using a different Linux distribution or have a different username, replace `ubuntu` accordingly.
 5. `/home/ubuntu` is the initial directory where the file will be copied. Then, you will move it to `/opt/`.
 ### Note:
 - I used `server-key.pem` for all servers. It is the private key that will allow access to the server and is required for Ansible configurations or any other operations that need secure communication between the local machine and the server.
