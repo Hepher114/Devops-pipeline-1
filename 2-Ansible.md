@@ -79,6 +79,7 @@ The output should confirm whether Ansible is able to reach the servers and commu
 ![Screenshot 2025-03-23 193005](https://github.com/user-attachments/assets/a2b37316-cad7-4e3a-b52f-ffe573393602)
 
 # Install jenkins master using ansible playbook
+Create an ansible playbook following these steps:
 ##  Add the Jenkins Repository Key
 The first step is to add the Jenkins repository key to the target server. This ensures that the packages you install are verified and trusted. We will use the apt_key module in Ansible to achieve this.
 
@@ -190,7 +191,7 @@ Add the following task to your playbook:
         enabled: yes
 ```
 
-Once you've created the playbook, paste your configuration inside the jenkins-setup.yaml file ( replace it with the name of your yaml file )and then run it using the following command:
+Once you've created the playbook run it using the following command:
 ```hcl
 ansible-playbook -i /opt/hosts /opt/jenkins-setup.yaml
 ```
