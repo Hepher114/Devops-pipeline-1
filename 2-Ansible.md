@@ -62,7 +62,7 @@ ansible_ssh_private_key_file=/opt/server-key.pem
 ansible_user=ubuntu
 ansible_ssh_private_key_file=/opt/server-key.pem
 ```
-This is an Ansible inventory file for managing a Jenkins setup with a master and worker node. It defines the private IP addresses for both the Jenkins master and worker, along with the SSH user (`ec2-user`) and private key (`/opt/server-key.pem`) used for authentication. The master and worker nodes are listed under separate groups, `[jenkins]` and `[worker]`, with corresponding configuration details to allow Ansible to manage these servers.
+This is an Ansible inventory file for managing a Jenkins setup with a master and worker node. It defines the private IP addresses for both the Jenkins master and worker, along with the SSH user (`ubuntu`) and private key (`/opt/server-key.pem`) used for authentication. The master and worker nodes are listed under separate groups, `[jenkins]` and `[worker]`, with corresponding configuration details to allow Ansible to manage these servers.
 
 
 # Test the Connection
