@@ -36,7 +36,7 @@ To send the `server-key.pem` to the server using `scp` and then move it to the d
 ### Use `scp` to copy the file
 
 ```sh
-scp /path/to/local/server-key.pem server-key.pem ec2-user@<ansible-public-ip>:/home/ubuntu/
+scp /path/to/local/server-key.pem server-key.pem ubuntu@<ansible-public-ip>:/home/ubuntu/
 ```
 ### move the key to /opt
 ```hcl
