@@ -195,5 +195,5 @@ To confirm the repository content was downloaded correctly, use the following co
 `ls -l`
 You should see the following:
 
-![Screenshot 2025-03-26 165117](https://github.com/user-attachments/assets/96d56e10-8b9b-4975-8db0-2e32e468a199)
+![Screenshot 2025-03-26 165239](https://github.com/user-attachments/assets/a31fccc9-7808-4cc2-9577-5d41cc1a2791)
 
