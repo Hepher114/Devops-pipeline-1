@@ -188,7 +188,7 @@ List all workspaces (each pipeline job creates its own directory):
 #### 4. Enter Your Pipeline's Workspace
 Navigate to your pipeline's workspace directory:
 
-'cd Your-Pipeline-Name  # Replace with your actual pipeline name'
+`cd Your-Pipeline-Name  # Replace with your actual pipeline name`
 #### 5. Verify Repository Contents
 To confirm the repository content was downloaded correctly, use the following command:
 
