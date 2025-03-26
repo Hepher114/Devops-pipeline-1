@@ -88,4 +88,63 @@ After you have added the slave node in Jenkins, you can verify that the connecti
 
 ![Screenshot 2025-03-25 005148](https://github.com/user-attachments/assets/a9eee1a2-312a-485b-9012-c08791b5a22b)
 
+# Setting Up a Jenkins Pipeline with Git Checkout on a Slave Node
+
+Now we need to create a Jenkins pipeline that runs on the slave node and checks out a Git repository.
+## Before You Begin: Important Note
+
+Before you proceed with setting up the Jenkins pipeline, there are a few key things you should ensure:
+
+### Replace the Example GitHub Repository URL
+
+ you'll need to replace the example GitHub repository with your own repository URL that contains:
+
+A pom.xml file (for Maven projects)
+
+A src/ folder (with your source code)
+
+Make sure your repository:
+
+Is publicly accessible 
+
+Contains the proper Maven project structure
+
+## Create a New Jenkins Pipeline
+
+### Steps to Create the Pipeline:
+
+1. **Navigate to Jenkins Dashboard**
+   
+2. **Click New Item** from the left-hand menu.
+
+3. **Configure the Pipeline Job**
+
+   - Enter a name .
+   - Select **Pipeline** as the job type.
+   - Click **OK**.
+
+4. **Define the Pipeline Script**
+
+   Scroll to the **Pipeline** section.
+
+   Paste the following script (ensure the label matches your slave node's label):
+
+   ```groovy
+   pipeline {
+       agent {
+           node {
+               label 'Maven'  // Must match your slave node's label
+           }
+       }
+       stages {
+           stage('Git Checkout') {
+               steps {
+                   git branch: 'main', 
+                   url: 'YOUR-GITHUB-REPO-URL-HERE'  // ← REPLACE THIS with your repo
+               }
+           }
+       }
+   }
+
+
 
