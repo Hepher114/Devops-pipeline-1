@@ -147,4 +147,53 @@ Contains the proper Maven project structure
    }
 
 
+## Saving and Running Your Jenkins Pipeline
+
+Now that you've configured your pipeline, let's complete the setup and execute it for the first time.
+
+### Finalizing Your Pipeline Setup
+
+#### Save Your Pipeline Configuration
+
+After pasting your pipeline script (with your actual GitHub URL), scroll down to the bottom of the page and:
+
+- Click the **Save** button to apply the configuration.
+
+#### Initiate the Build
+
+1. On your pipeline's main page, locate the **Build Now** option in the left sidebar.
+2. Click **Build Now** to start the pipeline execution.
+
+Your pipeline will now begin executing, and Jenkins will automatically check out the code from your GitHub repository, ensuring the setup is working as expected.
+
+# Setting Up a Jenkins Pipeline with Git Checkout on a Slave Node
+
+## Verifying the Repository on Your Slave Server
+
+After successfully running your Jenkins pipeline, you should verify that your GitHub repository content was properly downloaded to the slave node. Here's how to check:
+
+#### 1. Connect to Your Slave Server via SSH
+
+#### 2. Navigate to the Jenkins Workspace Directory
+Once you're logged into your slave server, navigate to the Jenkins workspace directory:
+
+```hcl
+cd /home/ubuntu/jenkins/workspace
+```
+#### 3. Locate Your Pipeline's Workspace
+List all workspaces (each pipeline job creates its own directory):
+
+`ls` and You should see a folder matching your pipeline name 
+
+#### 4. Enter Your Pipeline's Workspace
+Navigate to your pipeline's workspace directory:
+
+'cd Your-Pipeline-Name  # Replace with your actual pipeline name'
+#### 5. Verify Repository Contents
+To confirm the repository content was downloaded correctly, use the following command:
+
+`ls -l`
+You should see the following:
+
+![Screenshot 2025-03-26 165117](https://github.com/user-attachments/assets/96d56e10-8b9b-4975-8db0-2e32e468a199)
 
