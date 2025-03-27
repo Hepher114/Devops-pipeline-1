@@ -2,11 +2,6 @@
 
 This guide provides step-by-step instructions for configuring SonarQube (SonarCloud) with Jenkins for continuous code quality analysis.
 
-## Prerequisites
-- Jenkins instance with administrator access
-- SonarCloud account (free tier available)
-- GitHub, GitLab, or Bitbucket repository for your project
-
 ## Configuration Steps
 
 ### 1. SonarCloud Account Setup
