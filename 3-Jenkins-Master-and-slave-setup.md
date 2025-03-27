@@ -111,40 +111,98 @@ Contains the proper Maven project structure
 
 ## Create a New Jenkins Pipeline
 
-### Steps to Create the Pipeline:
+# Creating a Jenkins Pipeline with SCM Integration
 
-1. **Navigate to Jenkins Dashboard**
-   
-2. **Click New Item** from the left-hand menu.
+## Prerequisites
+Before creating the pipeline, ensure:
+- You have a Jenkins master and slave node configured (with label 'mvn-slave')
+- Your Git repository contains:
+  - A `Jenkinsfile`
+  - A `pom.xml` file
+  - A `src/` directory with source code
+- The repository is accessible from your Jenkins server
 
-3. **Configure the Pipeline Job**
+## Step 1: Create Jenkinsfile in Your Repository
 
-   - Enter a name .
-   - Select **Pipeline** as the job type.
-   - Click **OK**.
+Create a file named `Jenkinsfile` in your repository root with the following content:
 
-4. **Define the Pipeline Script**
+```groovy
+pipeline {
+    agent {
+        node {
+            label 'mvn-slave'
+        }
+    }
+    
+    environment {
+        PATH = "/opt/apache-maven-3.9.9/bin:$PATH"
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', 
+                url: 'https://github.com/yourusername/your-repo.git'
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'mvn clean deploy'
+            }
+        }
+    }
+}
+```
+# Jenkins Pipeline Configuration Guide
 
-   Scroll to the **Pipeline** section.
+## Step 2: Create Pipeline in Jenkins
 
-   Paste the following script (ensure the label matches your slave node's label):
+### Access Jenkins Dashboard
+1. Open your web browser and navigate to your Jenkins instance URL
+2. Log in with your credentials if required
 
-   ```groovy
-   pipeline {
-       agent {
-           node {
-               label 'Maven'  // Must match your slave node's label
-           }
-       }
-       stages {
-           stage('Git Checkout') {
-               steps {
-                   git branch: 'main', 
-                   url: 'YOUR-GITHUB-REPO-URL-HERE'  // ← REPLACE THIS with your repo
-               }
-           }
-       }
-   }
+### Create New Pipeline Job
+1. From the Jenkins dashboard, locate and click **New Item** in the left-hand navigation menu
+2. In the creation page:
+   - **Enter an item name**: Choose a descriptive name for your pipeline (e.g., "maven-build-pipeline")
+   - **Select item type**: Choose **Pipeline** from the list of job types
+   - Click **OK** to proceed to configuration
+
+![New Pipeline Creation](https://jenkins.io/images/instructions/new-pipeline.png)
+
+## Configure Pipeline from SCM
+
+### Pipeline Definition Setup
+1. In the pipeline configuration page, scroll to the **Pipeline** section
+2. Configure the following settings:
+   - **Definition**: Select "Pipeline script from SCM" from the dropdown
+   - **SCM**: Choose "Git" from the available options
+
+### Repository Configuration
+1. **Repository URL**:
+   - Enter the full HTTPS/SSH URL of your Git repository
+   - Example: `https://github.com/yourusername/your-repo.git`
+
+2. **Credentials**:
+   - For public repositories: Leave this field blank
+   - For private repositories:
+     - Click **Add** to configure new credentials if needed
+     - Select appropriate credentials from dropdown
+
+3. **Branch Specifier**:
+   - Enter your default branch name (typically `*/main` or `*/master`)
+
+
+4. **Script Path**:
+   - Ensure this exactly matches your Jenkinsfile name
+   - Default: `Jenkinsfile`
+
+### Finalize Configuration
+1. Verify all settings are correct
+2. Click **Save** to store your pipeline configuration
+3. You'll be redirected to the pipeline's main page
+
+
+![SCM Configuration](https://jenkins.io/images/instructions/scm-configuration.png)
 
 
 ## Saving and Running Your Jenkins Pipeline
