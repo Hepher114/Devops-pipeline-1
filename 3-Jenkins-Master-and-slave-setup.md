@@ -109,8 +109,6 @@ Is publicly accessible
 
 Contains the proper Maven project structure
 
-## Create a New Jenkins Pipeline
-
 # Creating a Jenkins Pipeline with SCM Integration
 
 ## Prerequisites
@@ -122,7 +120,7 @@ Before creating the pipeline, ensure:
   - A `src/` directory with source code
 - The repository is accessible from your Jenkins server
 
-## Step 1: Create Jenkinsfile in Your Repository
+## Create Jenkinsfile in Your Repository
 
 Create a file named `Jenkinsfile` in your repository root with the following content:
 
@@ -152,22 +150,15 @@ pipeline {
     }
 }
 ```
-# Jenkins Pipeline Configuration Guide
 
-## Step 2: Create Pipeline in Jenkins
-
-### Access Jenkins Dashboard
-1. Open your web browser and navigate to your Jenkins instance URL
-2. Log in with your credentials if required
+## Create Pipeline in Jenkins
 
 ### Create New Pipeline Job
 1. From the Jenkins dashboard, locate and click **New Item** in the left-hand navigation menu
 2. In the creation page:
-   - **Enter an item name**: Choose a descriptive name for your pipeline (e.g., "maven-build-pipeline")
+   - **Enter an item name**: Choose a descriptive name for your pipeline
    - **Select item type**: Choose **Pipeline** from the list of job types
    - Click **OK** to proceed to configuration
-
-![New Pipeline Creation](https://jenkins.io/images/instructions/new-pipeline.png)
 
 ## Configure Pipeline from SCM
 
@@ -179,8 +170,7 @@ pipeline {
 
 ### Repository Configuration
 1. **Repository URL**:
-   - Enter the full HTTPS/SSH URL of your Git repository
-   - Example: `https://github.com/yourusername/your-repo.git`
+   - Enter the full URL of your Git repository
 
 2. **Credentials**:
    - For public repositories: Leave this field blank
@@ -200,10 +190,6 @@ pipeline {
 1. Verify all settings are correct
 2. Click **Save** to store your pipeline configuration
 3. You'll be redirected to the pipeline's main page
-
-
-![SCM Configuration](https://jenkins.io/images/instructions/scm-configuration.png)
-
 
 ## Saving and Running Your Jenkins Pipeline
 
@@ -253,5 +239,4 @@ To confirm the repository content was downloaded correctly, use the following co
 `ls -l`
 You should see the following:
 
-![Screenshot 2025-03-26 165239](https://github.com/user-attachments/assets/a31fccc9-7808-4cc2-9577-5d41cc1a2791)
 
