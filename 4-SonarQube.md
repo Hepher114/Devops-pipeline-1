@@ -2,8 +2,6 @@
 
 This guide provides step-by-step instructions for configuring SonarQube (SonarCloud) with Jenkins for continuous code quality analysis.
 
-## Configuration Steps
-
 ### 1. SonarCloud Account Setup
 
 1. **Create Account**:
