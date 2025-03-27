@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'mvn-slave'
+            label 'maven-node'
         }
     }
     
