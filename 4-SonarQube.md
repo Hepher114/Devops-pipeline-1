@@ -11,8 +11,9 @@ This guide provides step-by-step instructions for configuring SonarQube (SonarCl
 2. **Generate Authentication Token**:
    - Click on your profile picture → "My Account"
    - Navigate to "Security" tab
-   - Under "Generate Tokens", enter a descriptive name (e.g., "Jenkins Integration")
-   - Click "Generate" and copy the token (store it securely - you won't be able to see it again)
+   - Under "Generate Tokens", enter a name
+   - Click "Generate" and copy the token and store it securely 
+![Screenshot 2025-03-27 145532](https://github.com/user-attachments/assets/16d9197e-dcb4-488d-8657-d0df099ed71c)
 
 ### 2. Jenkins Credentials Setup
 
@@ -29,7 +30,7 @@ This guide provides step-by-step instructions for configuring SonarQube (SonarCl
 ### 3. Plugin Installation
 
 1. **Install SonarQube Scanner Plugin**:
-   - Go to `Manage Jenkins` → `Manage Plugins`
+   - Go to `Manage Jenkins` → `Plugins`
    - Select the `Available` tab
    - Search for "SonarQube Scanner"
    - Check the box and click `Install without restart`
